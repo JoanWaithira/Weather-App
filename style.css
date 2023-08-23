@@ -5,6 +5,10 @@ h1 {
   line-height: 48px;
   margin: 20px 0 10px;
 }
+img {
+  position: relative;
+  margin-top: -17px;
+}
 #main-city {
   font-size: 32px;
   padding-bottom: 5px;
