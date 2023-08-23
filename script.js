@@ -43,10 +43,16 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 }
+function search(city) {
+  let apiKey = "b9c57493680f5d1841o38aa42d7dft4f";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayTemperature);
+}
+function submit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#cityInput");
+  search(cityInputElement.value);
+}
 
-let apiKey = "b9c57493680f5d1841o38aa42d7dft4f";
-let city = "Nairobi";
-let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-console.log(apiURL);
-axios.get(apiURL).then(displayTemperature);
+let formElement = document.querySelector("#form");
+formElement.addEventListener("submit", submit);
