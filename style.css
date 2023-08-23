@@ -9,6 +9,13 @@ h1 {
   color: blue;
   font-weight: 500;
 }
+.city-1:hover,
+.city-2:hover,
+.city-3:hover,
+.city-4:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 ul {
   list-style: none;
 }
@@ -57,4 +64,8 @@ li {
   line-height: 18px;
   margin-top: 40px;
   text-align: center;
+}
+.fan {
+  text-decoration: none;
+  color: #212121;
 }
