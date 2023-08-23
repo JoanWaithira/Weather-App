@@ -74,7 +74,15 @@ li {
   margin-top: 40px;
   text-align: center;
 }
-.fan {
+/* #fan,
+#celcius {
   text-decoration: none;
   color: #212121;
+} */
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
 }

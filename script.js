@@ -31,6 +31,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
+  celciusTemp = response.data.temperature.current;
+
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
@@ -53,6 +55,30 @@ function submit(event) {
   let cityInputElement = document.querySelector("#cityInput");
   search(cityInputElement.value);
 }
+function displayFanTemp(event) {
+  event.preventDefault();
+  let fanTemp = (celciusTemp * 9) / 5 + 32;
+
+  celciusLink.classList.remove("active");
+  fahreinheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fanTemp);
+}
+function displayCelciusTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahreinheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemp);
+}
+
+let celciusTemp = null;
 
 let formElement = document.querySelector("#form");
 formElement.addEventListener("submit", submit);
+
+let fahreinheitLink = document.querySelector("#fan");
+fahreinheitLink.addEventListener("click", displayFanTemp);
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", displayCelciusTemp);
