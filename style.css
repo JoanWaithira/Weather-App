@@ -5,6 +5,10 @@ h1 {
   line-height: 48px;
   margin: 20px 0 10px;
 }
+#main-city {
+  font-size: 32px;
+  padding-bottom: 5px;
+}
 .cities {
   color: blue;
   font-weight: 500;
@@ -26,6 +30,7 @@ li {
   line-height: 20px;
   list-style: none;
   margin-bottom: 5px;
+  text-transform: capitalize;
 }
 .temperature {
   color: gray;
