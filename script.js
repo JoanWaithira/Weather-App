@@ -20,6 +20,34 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Thur", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  
+              <div class="col-2">
+                <div class="WeatherForecastPreview">
+                  <div class="forecast-day">${day}</div>
+                  <canvas width="38" height="38"></canvas>
+                  <div class="forecast-temperature">
+                    <span class="forecast-temperature-max">21°</span
+                    ><span class="forecast-temperature-min">17°</span>
+                  </div>
+                </div>
+              </div>
+          
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayTemperature(response) {
   console.log(response.data);
@@ -82,3 +110,5 @@ fahreinheitLink.addEventListener("click", displayFanTemp);
 
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelciusTemp);
+
+displayForecast();
