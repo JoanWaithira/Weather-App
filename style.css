@@ -64,6 +64,17 @@ li {
   padding-bottom: 50px;
   text-align: center;
 }
+.forecast-temperature-max {
+  font-weight: 500;
+  /* font-size: 13px; */
+}
+.forecast-temperature-min {
+  opacity: 0.6;
+  font-size: 13px;
+}
+.forecast-day {
+  opacity: 0.5;
+}
 .row {
   margin-top: var(--bs-gutter-y);
   max-width: 100%;
