@@ -43,7 +43,7 @@ function displayForecast(response) {
               <div class="col-2">
                 <div class="WeatherForecastPreview">
                   <div class="forecast-day">${formatDay(forecastDay.time)}</div>
-                  <br />
+                
                   <img src = "${
                     forecastDay.condition.icon_url
                   }" alt="" width="42" />
