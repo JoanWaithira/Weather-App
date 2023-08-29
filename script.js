@@ -1,13 +1,14 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  if (hours < 10) {
-    hours = `0${minutes}`;
-  }
+
   let days = [
     "Sunday",
     "Monday",
@@ -29,7 +30,6 @@ function formatDay(timestamp) {
   return days[day];
 }
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
@@ -46,11 +46,11 @@ function displayForecast(response) {
                 
                   <img src = "${
                     forecastDay.condition.icon_url
-                  }" alt="" width="42" />
+                  }" class = "forecast-img" alt="" width="50" />
                   <div class="forecast-temperature">
                     <span class="forecast-temperature-max">${Math.round(
                       forecastDay.temperature.maximum
-                    )}° </span
+                    )}°| </span
                     ><span class="forecast-temperature-min">${Math.round(
                       forecastDay.temperature.minimum
                     )}°</span>
@@ -67,17 +67,17 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
+  // console.log(coordinates);
   let apiKey = "b9c57493680f5d1841o38aa42d7dft4f";
   let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
 
   // let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKeykey}&units=metric`;
-  console.log(apiURL);
+  // console.log(apiURL);
   axios.get(apiURL).then(displayForecast);
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
+  // console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#main-city");
   let descriptionElement = document.querySelector("#description");
